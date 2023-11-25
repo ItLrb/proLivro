@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+* {margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;}
+body {font-family: Arial, Helvetica, sans-serif; background-color: #e4e4e4;}
+ul {list-style: none; display: flex; gap: 25px;}
+
+.bookBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #131313;
+    width: 265px;
+    height: auto;
+    max-height: 425px;
+    padding: 100px 0px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.281);
+} 
+.NotForSale {
+    font-size: 28px;
+    position: relative;
+    font-weight: bold;
+    color: #fff;
+}
+.NotForSale {
+    --f: .2em; /* control the folded part*/
+    --r: .8em; /* control the ribbon shape */
+
+    position: relative;
+    top: -90px;
+    left: 37px;
+    right: calc(-1*var(--f));
+    padding-inline: .25em;
+    line-height: 1.8;
+    background: #fa0000;
+    border-bottom: var(--f) solid #0005;
+    border-left: var(--r) solid #0000;
+    clip-path: 
+        polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
+        var(--r) calc(50% - var(--f)/2));
+        
+} .NotForSale::after {content: "Not For Sale";}
+
+.ForSale {
+    font-size: 28px;
+    position: relative;
+    font-weight: bold;
+    color: #fff;
+}
+.ForSale {
+    --f: .2em; /* control the folded part*/
+    --r: .8em; /* control the ribbon shape */
+
+    position: relative;
+    top: -90px;
+    left: 37px;
+    right: calc(-1*var(--f));
+    padding-inline: 1.25em;
+    line-height: 1.8;
+    background: #006105;
+    border-bottom: var(--f) solid #0005;
+    border-left: var(--r) solid #0000;
+    clip-path: 
+        polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
+        var(--r) calc(50% - var(--f)/2));
+        
+} .ForSale::after {content: "For Sale";}
+
+#res {
+    display: grid;
+    grid-template-columns: repeat(3, 17rem);
+    grid-template-rows: repeat(auto, 20rem);
+    grid-column-gap: 50px;
+    grid-row-gap: 25px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 75px;
+    margin-bottom: 45px;
+}
+
+
+
+
+
+
+section.searchBox {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+section.searchBox input[type=text] {
+    background-color: white;
+    padding: 12px 15px;
+    padding-right: 55px;
+    border: none;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.356);
+    width: 300px;
+} section.searchBox button {
+    padding: 5px 12px;
+    border: none;
+    background-color: #7a5e33;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-left: 10px;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.356);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.resultSearchTitle {  /* Titulo que recebe o nome da pesquisa */
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+aside {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+} .txt1 {color: #C37E16;} .txt2 {color: #7A5E33;} aside p {text-align: center; margin-top: 20px;}
+
+.googleLink {
+    font-weight: bold;
+    color: #7A5E33;
+    text-decoration: none;
+    margin-left: 7px;
+} .figmaLink {
+    font-weight: bold;
+    color: #C37E16;
+    text-decoration: none;
+    margin-left: 7px;
+}
