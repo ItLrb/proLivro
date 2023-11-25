@@ -12,14 +12,14 @@ function Footer() {
                     <FaLinkedin style={{color: '#fafafa'}} />
                     LinkedIn: <a href="https://www.linkedin.com/in/italo-roberto-a4921b278/" target="_blank" rel="noopener noreferrer">
                         <FaLink style={{color: '#b8b8b8'}} />
-                        https://www.linkedin.com/in/italo-roberto-a4921b278/
+                        Italo Roberto
                     </a>
                 </li>
                 <li>
                     <FaGithub style={{color: '#fafafa'}} />
                     GitHub: <a href="https://github.com/ItLrb" target="_blank" rel="noopener noreferrer">
                         <FaLink style={{color: '#b8b8b8'}} />
-                        https://github.com/ItLrb
+                        ItLrb
                     </a>
                 </li>
             </ul>
