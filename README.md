@@ -1,7 +1,7 @@
 # Bem-vindo ao LivroPro
 
 <p align="left">
-  <img src="./src/imgs/Banner Site.png" alt="Site Banner" width="570px"/>
+  <img src="./src/img/Banner Site.png" alt="Site Banner" width="570px"/>
 </p>
 
 ![Banner Site](https://github.com/user-attachments/assets/560542f6-6770-4fa9-8538-17efa9e3f2d2)
