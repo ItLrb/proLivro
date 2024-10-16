@@ -7,7 +7,7 @@ function SearchBook() {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
 
-  const apiKey = 'AIzaSyCd7XdketxylexoD_cPXzkhMAnym88FZjs';
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const handleSearch = async () => {
     try {
@@ -52,7 +52,8 @@ function SearchBook() {
 
 
       <div id={styles.res}>
-        {books.map((book) => (
+        {books.filter((book) => book.volumeInfo.imageLinks?.smallThumbnail)
+        .map((book) => (
           <div key={book.id}>
             <div className={styles.bookBox}>
             {book.volumeInfo.imageLinks ? (
