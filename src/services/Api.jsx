@@ -7,7 +7,7 @@ function SearchBook() {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
 
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = process.env.API_KEY;
 
   const handleSearch = async () => {
     try {
