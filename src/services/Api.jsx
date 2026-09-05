@@ -7,7 +7,7 @@ function SearchBook() {
   const [books, setBooks] = useState([]);
   const [error, setError] = useState(null);
 
-  const apiKey = process.env.API_KEY;
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const handleSearch = async () => {
     try {
@@ -52,7 +52,11 @@ function SearchBook() {
 
 
       <div id={styles.res}>
-        {books.filter((book) => book.volumeInfo.imageLinks?.smallThumbnail)
+        {books.filter((book) => book.volumeInfo.imageLinks?.smallThumbnail && 
+        book.volumeInfo.industryIdentifiers?.some(
+          (identifier) =>
+            identifier.type === 'ISBN_10' ||
+            identifier.type === 'ISBN_13'))
         .map((book) => (
           <div key={book.id}>
             <div className={styles.bookBox}>
@@ -61,10 +65,31 @@ function SearchBook() {
               ) : (
                 <p>Imagem não disponível</p>
               )}
-              <h2>{book.volumeInfo.title}</h2>
+              <h2>
+                {(() => {
+                  const title = book.volumeInfo.title;
+                  const words = title.split(/\s+/);
+
+                  return words.length > 7
+                    ? words.slice(0, 7).join(' ') + '...'
+                    : title;
+                })()}
+              </h2>
               <ul>
                 <li>Linguagem: {book.volumeInfo.language}</li>
-                <li>Autor(es): <strong>{book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor Desconhecido'}</strong></li>
+                <li>
+                  Autor(es): 
+                  <strong>
+                    {(() => {
+                      const authors = book.volumeInfo.authors;
+                      return authors && authors.length > 2
+                        ? authors.slice(0, 2).join(', ') + '...'
+                        : authors
+                        ? authors.join(', ')
+                        : 'Autor Desconhecido';
+                    })()}
+                  </strong>
+                </li>
               </ul>
                 <div className={styles.buyInfo}>
                   <span className={styles.valor}>{book.saleInfo.listPrice ? `R$${book.saleInfo.listPrice.amount}` : ''} </span>
@@ -74,7 +99,7 @@ function SearchBook() {
                 </div>
               <div className={`${styles.saleStatus} ${book.saleInfo.listPrice ? styles.ForSale : styles.NotForSale}`}>
               {book.saleInfo.listPrice ? '' : ''}
-            </div>
+              </div>
             </div>
           </div>
         ))}
